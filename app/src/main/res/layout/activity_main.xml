@@ -1,0 +1,85 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#575A4B"
+    tools:context="com.example.intellipro.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <EditText
+                android:id="@+id/inputEditText"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:hint="Enter your item"
+                android:backgroundTint="#2A2C24"
+                android:textColor="#A89B9D"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@+id/inputEditText"
+                android:backgroundTint="#CFCFEA"
+                android:textColor="#816C61"
+                android:text="+"
+                android:layout_marginLeft="10dp"/>
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="4dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            app:cardBackgroundColor="#A89B9D">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/generateButton"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:text="Generate"
+            android:backgroundTint="#816C61"
+            android:textColor="#CFCFEA"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/outputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_textview"
+            android:padding="8dp"
+            android:layout_marginTop="16dp"
+            android:textIsSelectable="true"
+            android:scrollbars="vertical"
+            android:ellipsize="end"
+            android:textColor="#816C61"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</ScrollView>
