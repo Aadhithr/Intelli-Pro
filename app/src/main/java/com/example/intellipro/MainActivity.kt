@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: TaskAdapter
     private val items = ArrayList<TaskItem>()
 
+    var projectGenerated = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -63,6 +65,11 @@ class MainActivity : AppCompatActivity() {
         val inputEditText: EditText = findViewById(R.id.inputEditText)
 
         findViewById<View>(R.id.addButton).setOnClickListener {
+            if (projectGenerated) {
+                items.clear()
+                adapter.notifyDataSetChanged()
+                projectGenerated = false
+            }
             val text = inputEditText.text.toString()
             if (text.isNotEmpty()) {
                 items.add(TaskItem(text))
@@ -70,10 +77,10 @@ class MainActivity : AppCompatActivity() {
                 inputEditText.text.clear()
             }
         }
-
         findViewById<View>(R.id.generateButton).setOnClickListener {
             val prompt = "I have these items at home: ${items.joinToString { it.task }}. Please create a project idea using these items and provide instructions to do so."
             generateOutput(prompt)
+            projectGenerated = true
         }
     }
 
